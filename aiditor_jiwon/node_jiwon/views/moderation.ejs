@@ -118,7 +118,11 @@
       <script>
          window.addEventListener('message', function (event) {
             if (event.data.type === 'file-uploaded') {
-               document.getElementById('videoFile').value = event.data.fileName;
+               const filePath = event.data.fileName;
+               const fileName = filePath.split('/').pop();
+
+               document.getElementById('videoFile').value = fileName;
+               document.getElementById('newVideoName').value = `new_${fileName}`;
             }
          });
 

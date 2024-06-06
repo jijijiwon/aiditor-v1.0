@@ -28,6 +28,7 @@ const s3 = new AWS.S3({
 
 router.use(function (req, res, next) {
   NODE_SUB = req.get("host").replace("8000", "8500");
+  next();
 });
 
 /* GET home page. */
@@ -65,8 +66,6 @@ router.get("/moderation-complete", (req, res) => {
   // complete 페이지를 렌더링
   res.render("moderation_complete", {
     downloadUrl: url,
-    title: "Express",
-    NODE_MAIN: NODE_MAIN,
     NODE_SUB: NODE_SUB,
     PYTHON_MAIN: PYTHON_MAIN,
     PYTHON_SUB: PYTHON_SUB,

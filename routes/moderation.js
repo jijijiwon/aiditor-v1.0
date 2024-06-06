@@ -1,8 +1,8 @@
-var express = require('express');
-const dotenv = require('dotenv');
+var express = require("express");
+const dotenv = require("dotenv");
 var router = express.Router();
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 
 const ID_M = process.env.ID;
 const SECRET_M = process.env.SECRET;
@@ -14,14 +14,12 @@ const PYTHON_MAIN = process.env.PYTHON_MAIN;
 const PYTHON_SUB = process.env.PYTHON_SUB;
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-   res.render('moderation', {
-      title: 'Express',
-      NODE_MAIN: NODE_MAIN,
-      NODE_SUB: NODE_SUB,
-      PYTHON_MAIN: PYTHON_MAIN,
-      PYTHON_SUB: PYTHON_SUB,
-   });
+router.get("/", function (req, res, next) {
+  res.render("moderation", {
+    NODE_SUB: NODE_SUB,
+    PYTHON_MAIN: PYTHON_MAIN,
+    PYTHON_SUB: PYTHON_SUB,
+  });
 });
 
 module.exports = router;

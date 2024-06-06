@@ -6,12 +6,3 @@
 **/node_modules
 **/package-lock.json
 conf/*
-
-##python
-**/.venv
-**/__pycache__/
-**/myenv/*
-
-##aws
-.c9
-**/uploadedFiles

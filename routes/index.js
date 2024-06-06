@@ -27,7 +27,7 @@ const s3 = new AWS.S3({
 });
 
 router.use(function (req, res, next) {
-  NODE_SUB = req.get("host").replace("8000", "8500");
+  NODE_SUB = "http://" + req.get("host").replace("8000", "8500");
   next();
 });
 

@@ -7,6 +7,11 @@ require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 let NODE_SUB;
 
 router.use(function (req, res, next) {
+  NODE_MAIN = "http://" + req.get("host");
+  next();
+});
+
+router.use(function (req, res, next) {
   NODE_SUB = "http://" + req.get("host").replace("8000", "8500");
   next();
 });

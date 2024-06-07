@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
-// var moderationRouter = require('./routes/moderation');
+var moderationRouter = require("./routes/moderation");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 var app = express();

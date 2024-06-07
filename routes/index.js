@@ -16,7 +16,6 @@ const BUCKET_NAME_M = process.env.BUCKET_NAME_M;
 const MYREGION_M = process.env.REGION_M;
 const PYTHON_MAIN = process.env.PYTHON_MAIN;
 const PYTHON_SUB = process.env.PYTHON_SUB;
-let NODE_MAIN;
 let NODE_SUB;
 
 const upload = multer({ dest: "uploads/" });
@@ -25,11 +24,6 @@ const s3 = new AWS.S3({
   accessKeyId: ID_M,
   secretAccessKey: SECRET_M,
   region: MYREGION_M,
-});
-
-router.use(function (req, res, next) {
-  NODE_MAIN = "http://" + req.get("host");
-  next();
 });
 
 router.use(function (req, res, next) {
@@ -48,7 +42,6 @@ router.get("/", function (req, res, next) {
 
 router.get("/popup", function (req, res, next) {
   res.render("pop_upload", {
-    NODE_MAIN: NODE_MAIN,
     PYTHON_MAIN: PYTHON_MAIN,
     PYTHON_SUB: PYTHON_SUB,
   });

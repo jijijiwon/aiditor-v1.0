@@ -46,6 +46,7 @@
     </div>
 
     <script>
+      const NODE_MAIN = "<%= NODE_MAIN %>";
       function displayFileName() {
         var input = document.getElementById("video-file");
         if (input.files.length > 0) {
@@ -61,7 +62,7 @@
         formData.append("videoFile", file);
 
         try {
-          const response = await fetch("/upload", {
+          const response = await fetch(`${NODE_MAIN}/upload`, {
             method: "POST",
             body: formData,
           });

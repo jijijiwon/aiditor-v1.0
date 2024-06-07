@@ -48,6 +48,14 @@ router.get("/popup", function (req, res, next) {
   });
 });
 
+router.get("/moderation", function (req, res, next) {
+  res.render("moderation", {
+    NODE_SUB: NODE_SUB,
+    PYTHON_MAIN: PYTHON_MAIN,
+    PYTHON_SUB: PYTHON_SUB,
+  });
+});
+
 router.get("/moderation-confirm", function (req, res, next) {
   res.render("moderation_con", {
     NODE_SUB: NODE_SUB,
